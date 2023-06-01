@@ -25,8 +25,8 @@ class calculator
 
     public function division()
     {
-        if ($this->n1 == 0 || $this->n2 == 0) {
-            return "No es posible la división por 0";
+        if ($this->n2 == 0) {
+            return "Error";
         } else {
             return $this->n1 / $this->n2;
         }
@@ -108,3 +108,8 @@ if (isset($_POST['numero'])) {
 </body>
 
 </html>
+<?php
+if ($_SESSION['num1'] === "Error") {
+    $_SESSION['num1'] = null;
+}
+?>
