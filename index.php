@@ -63,10 +63,15 @@ if (isset($_POST['numero'])) {
         if (isset($_SESSION['num1'])) {
             $_SESSION['num1'] .= $_POST['numero'];
         } else {
-            $_SESSION['num1'] = $_POST['numero'];
+            if ($_POST['numero'] == "negativo") {
+                $_SESSION['num1'] .= "-";
+            } else {
+                $_SESSION['num1'] = $_POST['numero'];
+            }
         }
     }
 }
+
 
 ?>
 
@@ -117,7 +122,9 @@ if (isset($_POST['numero'])) {
                     <button class="btn btn-danger col-1 p-1 m-1" type="submit" name="numero" value="-">-</button>
                 </div>
                 <div class="row justify-content-center">
-                    <button class="btn btn-success col-5 p-1 m-1" type="submit" name="numero" value="="> = </button>
+                    <button class="btn btn-warning col-1 p-1 m-1" type="submit" name="numero" value="negativo">
+                        (-)</button>
+                    <button class="btn btn-success col-3 p-1 m-1" type="submit" name="numero" value="="> = </button>
                 </div>
             </div>
         </form>
